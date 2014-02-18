@@ -4,7 +4,7 @@ iframe.setAttribute("style","display:none;visibility:hidden;");
 document.body.appendChild(iframe);  
 var d=iframe.contentWindow.document;  
 d.charset=d.characterSet="GBK";  
-function getGBKEscape(s) {  
+function getGBKEscape(s) {
     d.write("<body><a href='?"+s+"'>X</a></body>");  
     d.close();  
     var url=d.body.firstChild.href;  
