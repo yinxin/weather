@@ -1,0 +1,16 @@
+function encodeURL(s) {  
+    var a = document.createElement("a");  
+    function escapeDBC(s) {  
+        if (!s) return ""  
+        if (window.ActiveXObject) return s.replace(/[dD]/g, function($0) {  
+            window.vbsval = "";  
+            execScript('window.vbsval=Hex(Asc("' + $0 + '"))', "vbscript")  
+            return "%" + window.vbsval.slice(0,2) + "%" + window.vbsval.slice(-2);  
+        });  
+        a.href = "nothing.html?key=" + s;  
+        return a.href.split("key=").pop();  
+    }  
+    return s.replace(/([^x00-xff]+)|([x00-xff]+)/g, function($0, $1, $2) {  
+        return escapeDBC($1) + encodeURIComponent($2||'');  
+    });  
+}
