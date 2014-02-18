@@ -10,4 +10,4 @@ function getGBKEscape(s) {
     var url=d.body.firstChild.href;  
     return url.substr(url.lastIndexOf("?")+1);  
 };
-alert("getGBKEscape('烟火花')")
+alert(getGBKEscape('烟火花'))
